@@ -9,7 +9,7 @@ Hosting: Cloudflare Pages, free. Every push to the `main` branch goes live in ab
 |---|---|
 | `index.html` | The whole homepage. Design, text and the three app sections are all in this one file. |
 | `app-template.html` | Copy this to make a page for a new app (e.g. `pipo.html`). |
-| `images/` | App icons and logos (e.g. `mum-hero-icon.png`). Add new app icons here. |
+| `images/` | App icons (`mum-hero-icon.png`, `eldivo-icon.png`, `cukaisifu-icon.png`) and the studio logo: `logo-mark.svg/.png` (light), `logo-mark-dark.svg/.png`, `logo-lockup.svg/.png` (mark + wordmark), `app-icon.png` (1024, for store and social profiles), `favicon.svg`. Add new app icons here. |
 | `README.md` | This file. |
 
 Never put SSM documents, receipts or anything private in this folder: it is public on GitHub.
@@ -40,4 +40,4 @@ Or just tell Claude what changed.
 J & A APP STUDIO PLT · 202604002661 (LLP0047906-LGN)
 No. 123, Jalan Permata 1/KS09, Pusat Bandar Perniagaan Bandar Bestari,
 Taman Perindustrian Air Hitam, 42000 Klang, Selangor, Malaysia
-+60 12-213 0661 · jasonwong99@gmail.com
++60 12-213 0661 · jasonwong99@gmail.com (to be replaced by hello@jnaappstudio.com once the domain is live)
