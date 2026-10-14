@@ -9,8 +9,10 @@ Hosting: Cloudflare Pages, free. Every push to the `main` branch goes live in ab
 |---|---|
 | `index.html` | The whole homepage. Design, text and the three app sections are all in this one file. |
 | `app-template.html` | Copy this to make a page for a new app (e.g. `pipo.html`). |
-| `privacy.html` | Studio privacy policy. Each app also needs its own privacy page. |
+| `images/` | App icons and logos (e.g. `mum-hero-icon.png`). Add new app icons here. |
 | `README.md` | This file. |
+
+Never put SSM documents, receipts or anything private in this folder: it is public on GitHub.
 
 No build step, no WordPress, no database. Open `index.html` in a browser to preview.
 

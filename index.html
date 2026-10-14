@@ -64,7 +64,7 @@ p{margin:0}
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.125rem;letter-spacing:-.01em}
-.mark{width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:.95rem;font-weight:800;letter-spacing:-.04em}
+.mark{width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;letter-spacing:-.04em;white-space:nowrap;flex:none;line-height:1}
 .mark span{color:var(--pandan)}
 nav{display:flex;gap:clamp(12px,2.6vw,28px);font-size:var(--s-sm);font-weight:500}
 nav a{text-decoration:none;color:var(--ink-2)}
@@ -105,7 +105,8 @@ nav a:hover{color:var(--ink)}
 .ui-bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
 .ui-bar i{display:block;height:100%;border-radius:6px}
 .gold-row{background:var(--gold-soft)} .teal-row{background:var(--teal-soft)} .navy-row{background:var(--navy-soft)}
-.ui-check{display:flex;justify-content:space-between;align-items:center}
+.ui-check{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ui-check>div{display:grid;gap:2px;min-width:0}
 .tick{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-size:.6rem;color:#fff}
 
 /* strip */
@@ -127,6 +128,9 @@ section{scroll-margin-top:80px}
 .app-name{display:flex;align-items:center;gap:14px}
 .icon{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;flex:none}
 .icon svg{width:28px;height:28px}
+.icon img{width:100%;height:100%;border-radius:inherit;object-fit:cover;display:block}
+.tagline{display:block;font-size:var(--s-xs);color:var(--ink-2);margin-top:2px}
+.note{font-size:var(--s-xs);color:var(--ink-2);border-left:2px solid var(--line);padding-left:12px}
 .app-name h3{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800}
 .status{display:inline-block;margin-top:4px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;padding:3px 10px;border-radius:999px;border:1px solid currentColor}
 .app-copy > p{color:var(--ink-2);max-width:52ch}
@@ -240,11 +244,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div></div>
         <!-- Mum Hero -->
         <div class="phone p2"><div class="scr">
-          <div><div class="ui-h">This week</div><div class="ui-sub">FAMILY · 4 MEMBERS</div></div>
-          <div class="ui-row gold-row"><b>Sports day</b><small>Wed · 7:30 am · from school letter</small></div>
-          <div class="ui-row gold-row"><b>Tuition fee due</b><small>Fri · RM 180</small></div>
-          <div class="ui-row gold-row"><b>Grocery list</b><small>Eggs, milk, rice +5</small></div>
-          <div class="ui-btn" style="background:var(--gold)">Scan a letter</div>
+          <div><div class="ui-h">Today (3)</div><div class="ui-sub">FAMILY · 4 MEMBERS</div></div>
+          <div class="ui-row gold-row"><b>Badminton class</b><small>Wed · 4:00 pm · Sally, Mike</small></div>
+          <div class="ui-row gold-row"><b>Tuition fee · RM 180</b><small>Fri · reminder set</small></div>
+          <div class="ui-row gold-row"><b>Bring water colours</b><small>Thu · Emma · from class group</small></div>
+          <div class="ui-btn" style="background:var(--gold)">Share a screenshot</div>
         </div></div>
         <!-- CukaiSifu -->
         <div class="phone p3"><div class="scr">
@@ -278,19 +282,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <article class="app mum">
         <div class="app-copy">
           <div class="app-name">
-            <div class="icon" style="background:var(--gold-soft);color:var(--gold)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.1 5.3 3 1.8-1.9 3.2-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></div>
-            <div><h3>Mum Hero</h3><span class="status" style="color:var(--gold)">Now on the App Store</span></div>
+            <div class="icon" style="background:var(--gold-soft)"><img src="images/mum-hero-icon.png" alt="Mum Hero app icon" width="56" height="56"></div>
+            <div><h3>Mum Hero</h3><span class="tagline">Your Family's Second Brain</span><span class="status" style="color:var(--gold)">iOS first · Android to follow</span></div>
           </div>
-          <p>The family planner for busy mums. Snap a school letter or a bill, and Mum Hero turns it into calendar events and reminders the whole family can see.</p>
+          <p>Screenshot the class group. Mum Hero remembers the rest. Share a WhatsApp notice, photo or PDF from school, tuition or the music class, and Mum Hero pulls out the fees, exam dates, things to bring and activities, split per child, with the reminders already set.</p>
           <ul class="feat">
-            <li>Shared family calendar for up to 6 members</li>
-            <li>AI inbox: photograph letters, notices and bills to create events automatically</li>
-            <li>Shopping lists that learn what your family usually buys</li>
+            <li>Reads screenshots, photos and PDFs in any mix of English, Chinese and Malay. One notice, split per child.</li>
+            <li>Reminders that fit the job: fees 7, 3 and 1 day before; things to bring, the night before.</li>
+            <li>Up to 6 family members: husband, grandma, helper, each with their own role.</li>
+            <li>Ask Mum Hero "what does Alex need the day after tomorrow?" and get an answer from your own family's items only.</li>
           </ul>
           <div class="price">
             <div><b>RM 14.90</b><small>per family / month</small></div>
-            <div><b>RM 109.90</b><small>per family / year</small></div>
+            <div><b>RM 109.90</b><small>per family / year · shared by 6</small></div>
           </div>
+          <p class="note">Built by a Malaysian dad for his wife, for Malaysian parents. The first 300 founding families get a year free.</p>
           <div class="stores">
             <span class="store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9s-1.9-.9-3.2-.8c-1.6 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.2.8 2.1-1.2 2.9-2.4c.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</span>
             <span class="store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.8v18.4c0 .4.4.6.7.4l10.6-9.2L4.7 2.4c-.3-.2-.7 0-.7.4zm12.6 8.5L6.8 2.7l11.6 6.6-1.8 2zm0 1.4 1.8 2-11.6 6.6 9.8-8.6zm2.9-2.7-2.1 2.3 2.1 2.3 2.2-1.3c.6-.3.6-1.2 0-1.5l-2.2-1.8z"/></svg>Google Play · coming soon</span>
@@ -298,11 +304,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div>
         <div class="app-visual">
           <div class="phone"><div class="scr">
-            <div><div class="ui-h">Inbox</div><div class="ui-sub">AI READ 3 NEW ITEMS</div></div>
-            <div class="ui-row gold-row"><b>SK Bestari · Sports Day</b><small>Wed 15 Oct, 7:30 am · added to calendar</small></div>
-            <div class="ui-row gold-row"><b>TNB bill · RM 214.60</b><small>Due 28 Oct · reminder set</small></div>
-            <div class="ui-row gold-row"><b>Piano exam</b><small>Sat 25 Oct, 2:00 pm · for Aiden</small></div>
-            <div class="ui-btn" style="background:var(--gold)">Snap a new letter</div>
+            <div><div class="ui-h">Today (3)</div><div class="ui-sub">YOU HAVE 3 THINGS TO REMEMBER</div></div>
+            <div class="ui-row gold-row"><b>RM 15 · white sports shoes</b><small>Fri · Alex · from class group</small></div>
+            <div class="ui-row gold-row"><b>BM exam paper</b><small>Tue 21 Oct · Emma · reminder 3 days before</small></div>
+            <div class="ui-row gold-row"><b>Piano class fee · RM 180</b><small>Due 28 Oct · reminders 7 / 3 / 1 day</small></div>
+            <div class="ui-btn" style="background:var(--gold)">Share a screenshot</div>
           </div></div>
         </div>
       </article>
@@ -312,15 +318,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="app-copy">
           <div class="app-name">
             <div class="icon" style="background:var(--teal-soft);color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-2.6-8-6-8-10a4 4 0 0 1 7-2.6A4 4 0 0 1 20 11c0 4-3.6 7.4-8 10z"/><path d="M8 12h2l1.2-2 1.6 4 1.2-2h2"/></svg></div>
-            <div><h3>Eldivo</h3><span class="status" style="color:var(--teal)">Early testing on Android</span></div>
+            <div><h3>Eldivo</h3><span class="tagline">Better Care. Together.</span><span class="status" style="color:var(--teal)">Early testing on Android</span></div>
           </div>
-          <p>One parent. Several people looking after her. One record they all trust. Eldivo is a shared care record for families looking after an elderly parent: medicines, blood pressure, appointments, meals and what the doctor said, with every entry showing who recorded it and when.</p>
+          <p>One parent. Several people looking after her. One record they all trust. Eldivo is the shared care record for a family looking after an elderly parent: medicines, blood pressure, clinic visits, meals, reports and who did what, with every entry showing who recorded it and when.</p>
           <ul class="feat">
-            <li>Record by photo, voice or typing: prescriptions, readings and appointment slips. Eldivo shows what it found and asks before saving.</li>
-            <li>Doctor visit notes turned into a clear summary and next steps for the whole family</li>
-            <li>Each carer gets only the access the family admin allows</li>
-            <li>In English, Bahasa Melayu and 中文</li>
+            <li>One record the whole family sees. You decide what each family member and carer can see and do: a helper can log a dose but cannot change the prescription.</li>
+            <li>Show Eldivo a prescription, a blood-pressure monitor screen or a blood test report. It reads what it can, then asks you to confirm before anything is saved.</li>
+            <li>Photograph a meal, correct what it sees, and Eldivo checks the plate against her readings and the doctor's diet advice.</li>
+            <li>Files name themselves ("Blood test, 12 Sep 2026"). Blood pressure and sugar logs export to a PDF with a chart you can WhatsApp to the doctor.</li>
           </ul>
+          <p class="note">Not a medical device and not an emergency tool. Eldivo does not diagnose or interpret results; what the doctor says always comes first.</p>
           <div class="stores">
             <a class="store" href="https://eldivo.app" target="_blank" rel="noopener">eldivo.app ↗</a>
             <span class="store">Google Play · coming soon</span>
@@ -329,10 +336,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="app-visual">
           <div class="phone"><div class="scr">
             <div><div class="ui-h">Mama · today</div><div class="ui-sub">4 FAMILY MEMBERS</div></div>
-            <div class="ui-row teal-row ui-check"><div><b>Amlodipine 5 mg</b><small>Taken · recorded by Siew Ting, 8:05 am</small></div><span class="tick" style="background:var(--teal)">✓</span></div>
+            <div class="ui-row teal-row ui-check"><div><b>Amlodipine 5 mg</b><small>Taken · logged by Kak Ani, 8:05 am</small></div><span class="tick" style="background:var(--teal)">✓</span></div>
             <div class="ui-row teal-row"><b>Blood pressure 128 / 82</b><small>Recorded by Jason, 9:12 am</small></div>
-            <div class="ui-row teal-row"><b>Dr Lim visit notes</b><small>Next appointment Thu 6 Nov</small></div>
-            <div class="ui-btn" style="background:var(--teal)">Add a record</div>
+            <div class="ui-row teal-row"><b>Blood test, 12 Sep 2026</b><small>Named automatically · tap to preview</small></div>
+            <div class="ui-btn" style="background:var(--teal)">Show Eldivo</div>
           </div></div>
         </div>
       </article>
@@ -342,9 +349,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="app-copy">
           <div class="app-name">
             <div class="icon" style="background:var(--navy-soft);color:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
-            <div><h3>CukaiSifu</h3><span class="status" style="color:var(--navy)">Closed beta · Android first</span></div>
+            <div><h3>CukaiSifu</h3><span class="tagline">Every client's tax year. One calm app.</span><span class="status" style="color:var(--navy)">Closed beta · Android first</span></div>
           </div>
-          <p>The pocket tax sifu for Malaysian freelance accountants. Forty clients, one calendar, nothing to carry in your head. Add a client once and CukaiSifu builds their whole statutory year: LHDN, SSM, SST, payroll and e-Invoice.</p>
+          <p>The pocket tax sifu for Malaysian freelance accountants. Forty clients, one calendar, nothing to carry in your head. Add a client once and CukaiSifu builds their whole statutory year: LHDN, SSM, SST, payroll and e-Invoice, then remembers, captures, projects and reports so you don't have to.</p>
           <ul class="feat">
             <li>Statutory engine: enter a year end and entity type, and every recurring and annual deadline is generated</li>
             <li>Capture by photo, PDF, typing or voice, even with English, Malay and Chinese in one sentence</li>
@@ -356,6 +363,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <div><b>RM 159</b><small>per year · 26-day free trial</small></div>
           </div>
           <div class="stores">
+            <a class="store" href="https://cukaisifu.com" target="_blank" rel="noopener" style="color:var(--navy)">cukaisifu.com ↗</a>
             <span class="store">Google Play · closed beta</span>
             <span class="store">App Store · to follow</span>
           </div>
