@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>J&amp;A App Studio — Apps that make family life a little lighter</title>
+<meta name="description" content="J & A App Studio PLT builds simple, helpful mobile apps for everyday life in Malaysia: Mum Hero, Eldivo and CukaiSifu. Registered with SSM (202604002661).">
+<meta property="og:title" content="J&A App Studio">
+<meta property="og:description" content="Simple, helpful mobile apps for everyday life in Malaysia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jnaappstudio.com/">
+<meta name="theme-color" content="#17704F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121513'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='30' fill='%23FAFAF8'%3EJ%3Ctspan fill='%235CC79A'%3E%26amp;%3C/tspan%3EA%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://jnaappstudio.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm column (max 1180px); hero = headline left + fanned phones right; apps as alternating feature rows; company details set like a registration slip. */
+:root{
+  --paper:#FAFAF8;      /* page ground, faintly warm-green neutral */
+  --paper-2:#F1F2EE;    /* quiet bands */
+  --ink:#121513;        /* text */
+  --ink-2:#4A514C;      /* secondary text */
+  --line:#DCDFD9;       /* hairlines */
+  --pandan:#17704F;     /* studio accent — pandan green */
+  --pandan-soft:#E3F0E9;
+  --gold:#B8873A;       /* Mum Hero */
+  --gold-soft:#F6ECDB;
+  --teal:#2A7F8C;       /* Eldivo */
+  --teal-soft:#DFEFF1;
+  --navy:#28407A;       /* CukaiSifu */
+  --navy-soft:#E2E8F5;
+  --phone:#0F1110;
+  --screen:#FFFFFF;
+  --shadow:0 30px 60px -30px rgba(18,21,19,.35);
+  --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --s-xs:.8125rem; --s-sm:.9375rem; --s-md:1.0625rem; --s-lg:1.375rem; --s-xl:2rem; --s-2xl:clamp(2.4rem,5.2vw,4.25rem);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1211; --paper-2:#161A18; --ink:#EEF1EC; --ink-2:#A6AEA8; --line:#2A302C;
+  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618;
+  --teal:#6CC3CF; --teal-soft:#132C30; --navy:#9DB4EE; --navy-soft:#1A2236;
+  --phone:#000; --screen:#1B1F1D; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#0F1211; --paper-2:#161A18; --ink:#EEF1EC; --ink-2:#A6AEA8; --line:#2A302C;
+  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618;
+  --teal:#6CC3CF; --teal-soft:#132C30; --navy:#9DB4EE; --navy-soft:#1A2236;
+  --phone:#000; --screen:#1B1F1D; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s-md);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pandan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:var(--s-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.125rem;letter-spacing:-.01em}
+.mark{width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-size:.95rem;font-weight:800;letter-spacing:-.04em}
+.mark span{color:var(--pandan)}
+nav{display:flex;gap:clamp(12px,2.6vw,28px);font-size:var(--s-sm);font-weight:500}
+nav a{text-decoration:none;color:var(--ink-2)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,104px) clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:var(--s-2xl);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--pandan)}
+.lede{margin-top:22px;font-size:var(--s-lg);line-height:1.5;color:var(--ink-2);max-width:34ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:var(--s-sm);text-decoration:none;transition:transform .2s ease,background .2s ease}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn:hover{transform:translateY(-1px)}
+.hero-meta{margin-top:36px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:var(--s-xs);color:var(--ink-2)}
+.hero-meta b{font-weight:600;color:var(--ink)}
+
+.stage{position:relative;height:clamp(380px,46vw,540px);display:flex;justify-content:center;align-items:center;max-width:100%}
+.stage::before{content:"";position:absolute;inset:8% 6%;border-radius:40px;background:radial-gradient(60% 60% at 50% 45%,var(--pandan-soft),transparent 70%)}
+.phone{position:absolute;width:clamp(170px,19vw,236px);aspect-ratio:9/19;max-width:100%;background:var(--phone);border-radius:34px;padding:9px;box-shadow:var(--shadow);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.phone .scr{height:100%;border-radius:26px;background:var(--screen);overflow:hidden;display:flex;flex-direction:column;padding:28px 14px 14px;gap:9px;position:relative}
+.phone .scr::before{content:"";position:absolute;top:9px;left:50%;translate:-50% 0;width:62px;height:17px;border-radius:12px;background:var(--phone)}
+.p1{transform:translateX(-62%) rotate(-8deg) translateY(16px);z-index:1}
+.p2{z-index:3}
+.p3{transform:translateX(62%) rotate(8deg) translateY(16px);z-index:2}
+.stage:hover .p1{transform:translateX(-70%) rotate(-10deg) translateY(10px)}
+.stage:hover .p3{transform:translateX(70%) rotate(10deg) translateY(10px)}
+
+/* mini UI inside phones */
+.ui-h{font-family:var(--f-display);font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+.ui-sub{font-size:.66rem;color:var(--ink-2);font-family:var(--f-mono);letter-spacing:.02em}
+.ui-row{border-radius:12px;padding:9px 10px;font-size:.7rem;line-height:1.35;display:grid;gap:2px}
+.ui-row b{font-weight:600;font-size:.74rem}
+.ui-row small{color:var(--ink-2);font-size:.64rem}
+.ui-btn{margin-top:auto;border-radius:12px;padding:10px;text-align:center;font-size:.72rem;font-weight:600;color:#fff}
+.ui-bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.ui-bar i{display:block;height:100%;border-radius:6px}
+.gold-row{background:var(--gold-soft)} .teal-row{background:var(--teal-soft)} .navy-row{background:var(--navy-soft)}
+.ui-check{display:flex;justify-content:space-between;align-items:center}
+.tick{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-size:.6rem;color:#fff}
+
+/* strip */
+.strip{border-block:1px solid var(--line);background:var(--paper-2)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-block:28px}
+.strip div{display:grid;gap:4px}
+.strip b{font-family:var(--f-display);font-size:var(--s-lg);letter-spacing:-.01em}
+.strip span{font-size:var(--s-sm);color:var(--ink-2)}
+
+/* apps */
+section{scroll-margin-top:80px}
+.apps{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:14px;max-width:640px;margin-bottom:clamp(40px,6vw,72px)}
+.sec-head h2{font-size:var(--s-xl);font-weight:700}
+.sec-head p{color:var(--ink-2)}
+.app{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center;padding-block:clamp(36px,5vw,56px);border-top:1px solid var(--line)}
+.app:nth-of-type(even) .app-visual{order:-1}
+.app-copy{display:grid;gap:18px;min-width:0}
+.app-name{display:flex;align-items:center;gap:14px}
+.icon{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;flex:none}
+.icon svg{width:28px;height:28px}
+.app-name h3{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800}
+.status{display:inline-block;margin-top:4px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.04em;padding:3px 10px;border-radius:999px;border:1px solid currentColor}
+.app-copy > p{color:var(--ink-2);max-width:52ch}
+.feat{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.feat li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:start;font-size:var(--s-sm)}
+.feat li::before{content:"";width:8px;height:8px;border-radius:50%;margin-top:.55em;margin-left:4px;background:var(--dot)}
+.price{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:6px}
+.price div{display:grid}
+.price b{font-family:var(--f-display);font-size:1.5rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.price small{font-size:var(--s-xs);color:var(--ink-2)}
+.app-visual{display:flex;justify-content:center;min-width:0}
+.app-visual .phone{position:relative;transform:none}
+.stores{display:flex;flex-wrap:wrap;gap:10px}
+.store{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);font-size:var(--s-xs);font-weight:500;color:var(--ink-2)}
+.store svg{width:16px;height:16px}
+a.store{text-decoration:none;color:var(--teal);border-color:currentColor}
+a.store:hover{background:var(--teal-soft)}
+
+.mum{--dot:var(--gold)} .eld{--dot:var(--teal)} .cuk{--dot:var(--navy)}
+
+/* studio */
+.studio{background:var(--paper-2);border-block:1px solid var(--line);padding-block:clamp(64px,9vw,112px)}
+.studio .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px)}
+.studio h2{font-size:var(--s-xl);font-weight:700}
+.principles{display:grid;gap:28px}
+.principles div{display:grid;gap:6px;padding-left:20px;border-left:2px solid var(--pandan)}
+.principles h3{font-size:var(--s-lg);font-weight:700}
+.principles p{color:var(--ink-2);font-size:var(--s-sm);max-width:56ch}
+
+/* company slip */
+.contact{padding-block:clamp(64px,9vw,112px)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,96px);align-items:start}
+.contact h2{font-size:var(--s-xl);font-weight:700}
+.contact .wrap > div:first-child{display:grid;gap:16px}
+.contact .wrap > div:first-child p{color:var(--ink-2);max-width:42ch}
+.slip{border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
+.slip-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px dashed var(--line);background:var(--paper-2)}
+.slip dl{margin:0;display:grid;grid-template-columns:minmax(0,9.5rem) minmax(0,1fr)}
+.slip dt,.slip dd{margin:0;padding:14px 22px;border-bottom:1px solid var(--line);font-size:var(--s-sm)}
+.slip dt{color:var(--ink-2);font-size:var(--s-xs);font-family:var(--f-mono);letter-spacing:.03em;text-transform:uppercase;padding-top:17px}
+.slip dd{font-weight:500;overflow-wrap:anywhere}
+.slip dl > :nth-last-child(-n+2){border-bottom:0}
+.mono{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
+.copy{font:inherit;font-size:var(--s-xs);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:5px 10px;cursor:pointer;margin-left:8px}
+
+footer{border-top:1px solid var(--line);padding-block:32px;font-size:var(--s-xs);color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media (max-width:880px){
+  .hero .wrap,.app,.studio .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+  .app:nth-of-type(even) .app-visual{order:0}
+  .stage{height:420px}
+  .strip .wrap{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  nav a:not(:last-child){display:none}
+  .phone{width:150px}
+  .p1{transform:translateX(-58%) rotate(-7deg) translateY(14px)}
+  .p3{transform:translateX(58%) rotate(7deg) translateY(14px)}
+  .stage{height:360px}
+  .slip dl{grid-template-columns:minmax(0,1fr)}
+  .slip dt{border-bottom:0;padding-bottom:0}
+}
+@media (prefers-reduced-motion:no-preference){
+  .stage .phone{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .stage .p1{animation-delay:.08s} .stage .p3{animation-delay:.16s}
+}
+@keyframes rise{from{translate:0 18px}to{translate:0 0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="J and A App Studio, home"><span class="mark">J<span>&amp;</span>A</span>App Studio</a>
+    <nav aria-label="Main">
+      <a href="#apps">Apps</a>
+      <a href="#studio">Studio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Independent app studio · Klang, Malaysia</p>
+        <h1 style="margin-top:18px">Apps that make family life <em>a little lighter.</em></h1>
+        <p class="lede">We build simple, helpful mobile apps for everyday life in Malaysia: for busy mums, for families caring for an ageing parent, and for the accountants who keep everyone's tax deadlines.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#apps">See our apps</a>
+          <a class="btn btn-ghost" href="#contact">Contact us</a>
+        </div>
+        <div class="hero-meta">
+          <span><b>3</b> apps in the family</span>
+          <span><b>iOS</b> &amp; <b>Android</b></span>
+          <span>Priced in <b>Ringgit</b></span>
+        </div>
+      </div>
+
+      <div class="stage" aria-hidden="true">
+        <!-- Eldivo -->
+        <div class="phone p1"><div class="scr">
+          <div><div class="ui-h">Mama's record</div><div class="ui-sub">TUE · 14 OCT</div></div>
+          <div class="ui-row teal-row ui-check"><div><b>Morning medicine</b><small>Recorded by Siew Ting</small></div><span class="tick" style="background:var(--teal)">✓</span></div>
+          <div class="ui-row teal-row"><b>Blood pressure</b><small>128 / 82 · recorded by Jason</small></div>
+          <div class="ui-row teal-row"><b>Clinic visit</b><small>Thu 6 Nov · 10:00 am</small></div>
+          <div class="ui-btn" style="background:var(--teal)">Add a record</div>
+        </div></div>
+        <!-- Mum Hero -->
+        <div class="phone p2"><div class="scr">
+          <div><div class="ui-h">This week</div><div class="ui-sub">FAMILY · 4 MEMBERS</div></div>
+          <div class="ui-row gold-row"><b>Sports day</b><small>Wed · 7:30 am · from school letter</small></div>
+          <div class="ui-row gold-row"><b>Tuition fee due</b><small>Fri · RM 180</small></div>
+          <div class="ui-row gold-row"><b>Grocery list</b><small>Eggs, milk, rice +5</small></div>
+          <div class="ui-btn" style="background:var(--gold)">Scan a letter</div>
+        </div></div>
+        <!-- CukaiSifu -->
+        <div class="phone p3"><div class="scr">
+          <div><div class="ui-h">Due 15 Nov</div><div class="ui-sub">12 CLIENTS · 60 FILINGS</div></div>
+          <div class="ui-row navy-row"><b>CP204 · Kedai Ah Seng</b><small>LHDN · instalment 11</small></div>
+          <div class="ui-row navy-row"><b>EPF + SOCSO · Bina Jaya</b><small>KWSP · PERKESO</small></div>
+          <div class="ui-row navy-row"><b>SST-02 · Klang Prints</b><small>Due 30 Nov · Customs</small></div>
+          <div class="ui-btn" style="background:var(--navy)">Ask Sifu</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <div><b>Made for Malaysia</b><span>Local habits, local holidays, Ringgit pricing.</span></div>
+      <div><b>One subscription, whole family</b><span>Share with the people you care for.</span></div>
+      <div><b>Built by parents</b><span>We use our own apps at home, every day.</span></div>
+    </div>
+  </div>
+
+  <section class="apps" id="apps">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Our apps</p>
+        <h2>Three apps, one goal: less to remember.</h2>
+        <p>Each app handles one part of family life that usually lives in someone's head, a WhatsApp group or a pile of paper.</p>
+      </div>
+
+      <!-- APP: Mum Hero -->
+      <article class="app mum">
+        <div class="app-copy">
+          <div class="app-name">
+            <div class="icon" style="background:var(--gold-soft);color:var(--gold)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.5 1.1 5.3 3 1.8-1.9 3.2-3 5.3-3 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg></div>
+            <div><h3>Mum Hero</h3><span class="status" style="color:var(--gold)">Now on the App Store</span></div>
+          </div>
+          <p>The family planner for busy mums. Snap a school letter or a bill, and Mum Hero turns it into calendar events and reminders the whole family can see.</p>
+          <ul class="feat">
+            <li>Shared family calendar for up to 6 members</li>
+            <li>AI inbox: photograph letters, notices and bills to create events automatically</li>
+            <li>Shopping lists that learn what your family usually buys</li>
+          </ul>
+          <div class="price">
+            <div><b>RM 14.90</b><small>per family / month</small></div>
+            <div><b>RM 109.90</b><small>per family / year</small></div>
+          </div>
+          <div class="stores">
+            <span class="store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9s-1.9-.9-3.2-.8c-1.6 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8s1.9.8 3.2.8 2.1-1.2 2.9-2.4c.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>App Store</span>
+            <span class="store"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2.8v18.4c0 .4.4.6.7.4l10.6-9.2L4.7 2.4c-.3-.2-.7 0-.7.4zm12.6 8.5L6.8 2.7l11.6 6.6-1.8 2zm0 1.4 1.8 2-11.6 6.6 9.8-8.6zm2.9-2.7-2.1 2.3 2.1 2.3 2.2-1.3c.6-.3.6-1.2 0-1.5l-2.2-1.8z"/></svg>Google Play · coming soon</span>
+          </div>
+        </div>
+        <div class="app-visual">
+          <div class="phone"><div class="scr">
+            <div><div class="ui-h">Inbox</div><div class="ui-sub">AI READ 3 NEW ITEMS</div></div>
+            <div class="ui-row gold-row"><b>SK Bestari · Sports Day</b><small>Wed 15 Oct, 7:30 am · added to calendar</small></div>
+            <div class="ui-row gold-row"><b>TNB bill · RM 214.60</b><small>Due 28 Oct · reminder set</small></div>
+            <div class="ui-row gold-row"><b>Piano exam</b><small>Sat 25 Oct, 2:00 pm · for Aiden</small></div>
+            <div class="ui-btn" style="background:var(--gold)">Snap a new letter</div>
+          </div></div>
+        </div>
+      </article>
+
+      <!-- APP: Eldivo -->
+      <article class="app eld">
+        <div class="app-copy">
+          <div class="app-name">
+            <div class="icon" style="background:var(--teal-soft);color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-2.6-8-6-8-10a4 4 0 0 1 7-2.6A4 4 0 0 1 20 11c0 4-3.6 7.4-8 10z"/><path d="M8 12h2l1.2-2 1.6 4 1.2-2h2"/></svg></div>
+            <div><h3>Eldivo</h3><span class="status" style="color:var(--teal)">Early testing on Android</span></div>
+          </div>
+          <p>One parent. Several people looking after her. One record they all trust. Eldivo is a shared care record for families looking after an elderly parent: medicines, blood pressure, appointments, meals and what the doctor said, with every entry showing who recorded it and when.</p>
+          <ul class="feat">
+            <li>Record by photo, voice or typing: prescriptions, readings and appointment slips. Eldivo shows what it found and asks before saving.</li>
+            <li>Doctor visit notes turned into a clear summary and next steps for the whole family</li>
+            <li>Each carer gets only the access the family admin allows</li>
+            <li>In English, Bahasa Melayu and 中文</li>
+          </ul>
+          <div class="stores">
+            <a class="store" href="https://eldivo.app" target="_blank" rel="noopener">eldivo.app ↗</a>
+            <span class="store">Google Play · coming soon</span>
+          </div>
+        </div>
+        <div class="app-visual">
+          <div class="phone"><div class="scr">
+            <div><div class="ui-h">Mama · today</div><div class="ui-sub">4 FAMILY MEMBERS</div></div>
+            <div class="ui-row teal-row ui-check"><div><b>Amlodipine 5 mg</b><small>Taken · recorded by Siew Ting, 8:05 am</small></div><span class="tick" style="background:var(--teal)">✓</span></div>
+            <div class="ui-row teal-row"><b>Blood pressure 128 / 82</b><small>Recorded by Jason, 9:12 am</small></div>
+            <div class="ui-row teal-row"><b>Dr Lim visit notes</b><small>Next appointment Thu 6 Nov</small></div>
+            <div class="ui-btn" style="background:var(--teal)">Add a record</div>
+          </div></div>
+        </div>
+      </article>
+
+      <!-- APP: CukaiSifu -->
+      <article class="app cuk">
+        <div class="app-copy">
+          <div class="app-name">
+            <div class="icon" style="background:var(--navy-soft);color:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+            <div><h3>CukaiSifu</h3><span class="status" style="color:var(--navy)">Closed beta · Android first</span></div>
+          </div>
+          <p>The pocket tax sifu for Malaysian freelance accountants. Forty clients, one calendar, nothing to carry in your head. Add a client once and CukaiSifu builds their whole statutory year: LHDN, SSM, SST, payroll and e-Invoice.</p>
+          <ul class="feat">
+            <li>Statutory engine: enter a year end and entity type, and every recurring and annual deadline is generated</li>
+            <li>Capture by photo, PDF, typing or voice, even with English, Malay and Chinese in one sentence</li>
+            <li>Gmail reading that proposes reminders and drafts replies. Nothing is ever sent without you.</li>
+            <li>A morning brief, and spoken answers when you ask what is due this week</li>
+          </ul>
+          <div class="price">
+            <div><b>RM 19.90</b><small>per month</small></div>
+            <div><b>RM 159</b><small>per year · 26-day free trial</small></div>
+          </div>
+          <div class="stores">
+            <span class="store">Google Play · closed beta</span>
+            <span class="store">App Store · to follow</span>
+          </div>
+        </div>
+        <div class="app-visual">
+          <div class="phone"><div class="scr">
+            <div><div class="ui-h">Every 15th</div><div class="ui-sub">FIVE FILINGS · ONE DAY</div></div>
+            <div class="ui-row navy-row ui-check"><div><b>CP204</b><small>LHDN</small></div><span class="tick" style="background:#D8352B">✓</span></div>
+            <div class="ui-row navy-row ui-check"><div><b>PCB / MTD</b><small>LHDN</small></div><span class="tick" style="background:#D8352B">✓</span></div>
+            <div class="ui-row navy-row"><b>EPF · SOCSO + EIS · HRD Corp</b><small>KWSP · PERKESO · HRDC</small></div>
+            <div class="ui-btn" style="background:var(--navy)">Ask Sifu what's due</div>
+          </div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="studio" id="studio">
+    <div class="wrap">
+      <div style="display:grid;gap:16px;align-content:start">
+        <p class="eyebrow">The studio</p>
+        <h2>A small studio in Klang, building for the families around us.</h2>
+      </div>
+      <div class="principles">
+        <div><h3>Solve one real problem</h3><p>Every app starts from a chore we face at home. If it doesn't save a family time each week, we don't ship it.</p></div>
+        <div><h3>Simple enough for everyone</h3><p>Big buttons, plain words and clear screens, so grandparents and helpers can use our apps as easily as teenagers.</p></div>
+        <div><h3>Fair, clear pricing</h3><p>Prices in Ringgit, one subscription for the whole family, and you can cancel any time from your phone's app store.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Talk to us.</h2>
+        <p>Questions about our apps, partnerships or support. We usually reply within one working day.</p>
+      </div>
+      <div class="slip">
+        <div class="slip-head"><span class="eyebrow">Company details</span><span class="eyebrow" style="color:var(--pandan)">Registered with SSM</span></div>
+        <dl>
+          <dt>Legal name</dt><dd>J &amp; A APP STUDIO PLT</dd>
+          <dt>Registration no.</dt><dd class="mono">202604002661 (LLP0047906-LGN)</dd>
+          <dt>Address</dt><dd>No. 123, Jalan Permata 1/KS09, Pusat Bandar Perniagaan Bandar Bestari, Taman Perindustrian Air Hitam, 42000 Klang, Selangor, Malaysia</dd>
+          <dt>Phone</dt><dd class="mono">+60 12-213 0661</dd>
+          <dt>Email</dt><dd><span class="mono" id="email">jasonwong99@gmail.com</span><button class="copy" id="copy-email" type="button">Copy</button></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 J &amp; A APP STUDIO PLT <span class="mono">(202604002661)</span>. All rights reserved.</span>
+    <span>Klang, Selangor, Malaysia</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function(){
+  var btn=this, text=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+  try{navigator.clipboard.writeText(text).then(done,function(){sel()})}catch(e){sel()}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+});
+</script>
+
+</body>
+</html>
