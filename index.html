@@ -25,12 +25,15 @@
   --line:#DCDFD9;       /* hairlines */
   --pandan:#17704F;     /* studio accent — pandan green */
   --pandan-soft:#E3F0E9;
-  --gold:#B8873A;       /* Mum Hero */
-  --gold-soft:#F6ECDB;
-  --teal:#2A7F8C;       /* Eldivo */
-  --teal-soft:#DFEFF1;
-  --navy:#28407A;       /* CukaiSifu */
-  --navy-soft:#E2E8F5;
+  --gold:#9A6A1E;       /* Mum Hero: gold text on light; icon gold #C9A15A */
+  --gold-soft:#F3EBDD;  /* between warm ivory #FBF7F0 and latte beige #E8DCC8 */
+  --gold-btn:#C9A15A;
+  --teal:#0F6E68;       /* Eldivo app primary; icon gradient #1D51CB → #61CD98 */
+  --teal-soft:#CFE9E6;
+  --eld-blue:#1D51CB; --eld-green:#61CD98;
+  --navy:#0B2E47;       /* CukaiSifu navy; teal #17A37A; chop red #D8352B */
+  --navy-soft:#EEF3F6;
+  --cuk-teal:#17A37A; --cuk-teal-soft:#DDF5EC; --chop:#D8352B;
   --phone:#0F1110;
   --screen:#FFFFFF;
   --shadow:0 30px 60px -30px rgba(18,21,19,.35);
@@ -41,13 +44,13 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#0F1211; --paper-2:#161A18; --ink:#EEF1EC; --ink-2:#A6AEA8; --line:#2A302C;
-  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618;
-  --teal:#6CC3CF; --teal-soft:#132C30; --navy:#9DB4EE; --navy-soft:#1A2236;
+  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618; --gold-btn:#C9A15A;
+  --teal:#7FCFC8; --teal-soft:#0A3B37; --navy:#8FB7CF; --navy-soft:#122A3C; --cuk-teal:#3FD3A1; --cuk-teal-soft:#0E3A2E;
   --phone:#000; --screen:#1B1F1D; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark;}}
 :root[data-theme="dark"]{
   --paper:#0F1211; --paper-2:#161A18; --ink:#EEF1EC; --ink-2:#A6AEA8; --line:#2A302C;
-  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618;
-  --teal:#6CC3CF; --teal-soft:#132C30; --navy:#9DB4EE; --navy-soft:#1A2236;
+  --pandan:#5CC79A; --pandan-soft:#16302A; --gold:#E0B467; --gold-soft:#2E2618; --gold-btn:#C9A15A;
+  --teal:#7FCFC8; --teal-soft:#0A3B37; --navy:#8FB7CF; --navy-soft:#122A3C; --cuk-teal:#3FD3A1; --cuk-teal-soft:#0E3A2E;
   --phone:#000; --screen:#1B1F1D; --shadow:0 30px 60px -30px rgba(0,0,0,.8); color-scheme:dark;}
 
 *{box-sizing:border-box}
@@ -126,7 +129,7 @@ section{scroll-margin-top:80px}
 .app:nth-of-type(even) .app-visual{order:-1}
 .app-copy{display:grid;gap:18px;min-width:0}
 .app-name{display:flex;align-items:center;gap:14px}
-.icon{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;flex:none}
+.icon{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;flex:none;overflow:hidden;box-shadow:0 6px 16px -8px rgba(18,21,19,.35)}
 .icon svg{width:28px;height:28px}
 .icon img{width:100%;height:100%;border-radius:inherit;object-fit:cover;display:block}
 .tagline{display:block;font-size:var(--s-xs);color:var(--ink-2);margin-top:2px}
@@ -149,7 +152,7 @@ section{scroll-margin-top:80px}
 a.store{text-decoration:none;color:var(--teal);border-color:currentColor}
 a.store:hover{background:var(--teal-soft)}
 
-.mum{--dot:var(--gold)} .eld{--dot:var(--teal)} .cuk{--dot:var(--navy)}
+.mum{--dot:var(--gold-btn)} .eld{--dot:var(--teal)} .cuk{--dot:var(--cuk-teal)}
 
 /* studio */
 .studio{background:var(--paper-2);border-block:1px solid var(--line);padding-block:clamp(64px,9vw,112px)}
@@ -248,7 +251,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="ui-row gold-row"><b>Badminton class</b><small>Wed · 4:00 pm · Sally, Mike</small></div>
           <div class="ui-row gold-row"><b>Tuition fee · RM 180</b><small>Fri · reminder set</small></div>
           <div class="ui-row gold-row"><b>Bring water colours</b><small>Thu · Emma · from class group</small></div>
-          <div class="ui-btn" style="background:var(--gold)">Share a screenshot</div>
+          <div class="ui-btn" style="background:var(--gold-btn)">Share a screenshot</div>
         </div></div>
         <!-- CukaiSifu -->
         <div class="phone p3"><div class="scr">
@@ -256,7 +259,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="ui-row navy-row"><b>CP204 · Kedai Ah Seng</b><small>LHDN · instalment 11</small></div>
           <div class="ui-row navy-row"><b>EPF + SOCSO · Bina Jaya</b><small>KWSP · PERKESO</small></div>
           <div class="ui-row navy-row"><b>SST-02 · Klang Prints</b><small>Due 30 Nov · Customs</small></div>
-          <div class="ui-btn" style="background:var(--navy)">Ask Sifu</div>
+          <div class="ui-btn" style="background:var(--cuk-teal)">Ask Sifu</div>
         </div></div>
       </div>
     </div>
@@ -282,7 +285,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <article class="app mum">
         <div class="app-copy">
           <div class="app-name">
-            <div class="icon" style="background:var(--gold-soft)"><img src="images/mum-hero-icon.png" alt="Mum Hero app icon" width="56" height="56"></div>
+            <div class="icon"><img src="images/mum-hero-icon.png" alt="Mum Hero app icon" width="56" height="56"></div>
             <div><h3>Mum Hero</h3><span class="tagline">Your Family's Second Brain</span><span class="status" style="color:var(--gold)">iOS first · Android to follow</span></div>
           </div>
           <p>Screenshot the class group. Mum Hero remembers the rest. Share a WhatsApp notice, photo or PDF from school, tuition or the music class, and Mum Hero pulls out the fees, exam dates, things to bring and activities, split per child, with the reminders already set.</p>
@@ -308,7 +311,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <div class="ui-row gold-row"><b>RM 15 · white sports shoes</b><small>Fri · Alex · from class group</small></div>
             <div class="ui-row gold-row"><b>BM exam paper</b><small>Tue 21 Oct · Emma · reminder 3 days before</small></div>
             <div class="ui-row gold-row"><b>Piano class fee · RM 180</b><small>Due 28 Oct · reminders 7 / 3 / 1 day</small></div>
-            <div class="ui-btn" style="background:var(--gold)">Share a screenshot</div>
+            <div class="ui-btn" style="background:var(--gold-btn)">Share a screenshot</div>
           </div></div>
         </div>
       </article>
@@ -317,7 +320,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <article class="app eld">
         <div class="app-copy">
           <div class="app-name">
-            <div class="icon" style="background:var(--teal-soft);color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4-2.6-8-6-8-10a4 4 0 0 1 7-2.6A4 4 0 0 1 20 11c0 4-3.6 7.4-8 10z"/><path d="M8 12h2l1.2-2 1.6 4 1.2-2h2"/></svg></div>
+            <div class="icon"><img src="images/eldivo-icon.png" alt="Eldivo app icon" width="56" height="56"></div>
             <div><h3>Eldivo</h3><span class="tagline">Better Care. Together.</span><span class="status" style="color:var(--teal)">Early testing on Android</span></div>
           </div>
           <p>One parent. Several people looking after her. One record they all trust. Eldivo is the shared care record for a family looking after an elderly parent: medicines, blood pressure, clinic visits, meals, reports and who did what, with every entry showing who recorded it and when.</p>
@@ -348,8 +351,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <article class="app cuk">
         <div class="app-copy">
           <div class="app-name">
-            <div class="icon" style="background:var(--navy-soft);color:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
-            <div><h3>CukaiSifu</h3><span class="tagline">Every client's tax year. One calm app.</span><span class="status" style="color:var(--navy)">Closed beta · Android first</span></div>
+            <div class="icon"><img src="images/cukaisifu-icon.png" alt="CukaiSifu app icon" width="56" height="56"></div>
+            <div><h3>CukaiSifu</h3><span class="tagline">Every client's tax year. One calm app.</span><span class="status" style="color:var(--cuk-teal)">Closed beta · Android first</span></div>
           </div>
           <p>The pocket tax sifu for Malaysian freelance accountants. Forty clients, one calendar, nothing to carry in your head. Add a client once and CukaiSifu builds their whole statutory year: LHDN, SSM, SST, payroll and e-Invoice, then remembers, captures, projects and reports so you don't have to.</p>
           <ul class="feat">
@@ -363,18 +366,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <div><b>RM 159</b><small>per year · 26-day free trial</small></div>
           </div>
           <div class="stores">
-            <a class="store" href="https://cukaisifu.com" target="_blank" rel="noopener" style="color:var(--navy)">cukaisifu.com ↗</a>
+            <a class="store" href="https://cukaisifu.com" target="_blank" rel="noopener" style="color:var(--cuk-teal)">cukaisifu.com ↗</a>
             <span class="store">Google Play · closed beta</span>
             <span class="store">App Store · to follow</span>
           </div>
         </div>
         <div class="app-visual">
           <div class="phone"><div class="scr">
-            <div><div class="ui-h">Every 15th</div><div class="ui-sub">FIVE FILINGS · ONE DAY</div></div>
-            <div class="ui-row navy-row ui-check"><div><b>CP204</b><small>LHDN</small></div><span class="tick" style="background:#D8352B">✓</span></div>
-            <div class="ui-row navy-row ui-check"><div><b>PCB / MTD</b><small>LHDN</small></div><span class="tick" style="background:#D8352B">✓</span></div>
+            <div><div class="ui-h" style="color:var(--navy)">Every 15th</div><div class="ui-sub">FIVE FILINGS · ONE DAY</div></div>
+            <div class="ui-row navy-row ui-check"><div><b>CP204</b><small>LHDN</small></div><span class="tick" style="background:var(--chop)">✓</span></div>
+            <div class="ui-row navy-row ui-check"><div><b>PCB / MTD</b><small>LHDN</small></div><span class="tick" style="background:var(--chop)">✓</span></div>
             <div class="ui-row navy-row"><b>EPF · SOCSO + EIS · HRD Corp</b><small>KWSP · PERKESO · HRDC</small></div>
-            <div class="ui-btn" style="background:var(--navy)">Ask Sifu what's due</div>
+            <div class="ui-btn" style="background:var(--cuk-teal)">Ask Sifu what's due</div>
           </div></div>
         </div>
       </article>
