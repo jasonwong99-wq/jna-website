@@ -1,6 +1,6 @@
 # J & A App Studio — company website
 
-Live site: https://jnaappstudio.com (once the domain is connected)
+Live site: https://jnaappstudio.com and https://www.jnaappstudio.com
 Hosting: Cloudflare Pages, free. Every push to the `main` branch goes live in about a minute.
 
 ## Files
@@ -40,4 +40,4 @@ Or just tell Claude what changed.
 J & A APP STUDIO PLT · 202604002661 (LLP0047906-LGN)
 No. 123, Jalan Permata 1/KS09, Pusat Bandar Perniagaan Bandar Bestari,
 Taman Perindustrian Air Hitam, 42000 Klang, Selangor, Malaysia
-+60 12-213 0661 · jasonwong99@gmail.com (to be replaced by hello@jnaappstudio.com once the domain is live)
++60 12-213 0661 · support@jnaappstudio.com (Cloudflare Email Routing forwards it to the owner's Gmail)
