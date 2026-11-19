@@ -155,6 +155,14 @@ a.store:hover{background:var(--teal-soft)}
 
 .mum{--dot:var(--gold-btn)} .eld{--dot:var(--teal)} .cuk{--dot:var(--cuk-teal)}
 
+/* websites: EasyOwnSite */
+.web{--dot:var(--pandan);padding-block:clamp(64px,9vw,112px);border-top:1px solid var(--line)}
+.web .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,96px);align-items:start}
+.web .wrap > div{display:grid;gap:16px}
+.web h2{font-size:var(--s-xl);font-weight:700}
+.web p{color:var(--ink-2);max-width:46ch}
+.web .btn{justify-self:start;margin-top:8px}
+
 /* studio */
 .studio{background:var(--paper-2);border-block:1px solid var(--line);padding-block:clamp(64px,9vw,112px)}
 .studio .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px)}
@@ -184,7 +192,7 @@ footer{border-top:1px solid var(--line);padding-block:32px;font-size:var(--s-xs)
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 @media (max-width:880px){
-  .hero .wrap,.app,.studio .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap,.app,.web .wrap,.studio .wrap,.contact .wrap{grid-template-columns:minmax(0,1fr)}
   .app:nth-of-type(even) .app-visual{order:0}
   .stage{height:420px}
   .strip .wrap{grid-template-columns:minmax(0,1fr)}
@@ -213,6 +221,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <a class="brand" href="#top" aria-label="J and A App Studio, home"><svg class="mark" viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><mask id="mh"><rect width="100" height="100" fill="#fff"/><circle cx="84" cy="16" r="20" fill="#000"/></mask><rect x="6" y="6" width="88" height="88" rx="24" fill="var(--ink)" mask="url(#mh)"/><circle cx="84" cy="16" r="12" fill="var(--pandan)"/><path d="M30 55l12 12 24-26" fill="none" stroke="var(--paper)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>J&amp;A App Studio</a>
     <nav aria-label="Main">
       <a href="#apps">Apps</a>
+      <a href="#websites">Websites</a>
       <a href="#studio">Studio</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -374,6 +383,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           </div></div>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="web" id="websites">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Also from the studio · Websites</p>
+        <h2>EasyOwnSite: your own company website, the easy way.</h2>
+        <p>For small businesses that need a proper website without the usual wait. Fill in three details, and EasyOwnSite writes the words, prepares the images and lays out the pages. See the preview free, and pay only if you are happy with it.</p>
+        <a class="btn btn-primary" href="https://www.easyownsite.com/">Visit easyownsite.com ↗</a>
+      </div>
+      <ul class="feat">
+        <li>Simple: three details to fill in, no technical skills needed.</li>
+        <li>Fast: your preview is usually ready in a few minutes.</li>
+        <li>Yours: your own .com address and hosting in one package, and you can change the words and photos yourself.</li>
+        <li>In English, Chinese or Malay, with project albums and digital business cards for your team.</li>
+      </ul>
     </div>
   </section>
 
